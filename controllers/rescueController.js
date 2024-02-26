@@ -22,12 +22,47 @@ const create = async (req,res) => {
 
 const index = async(req, res) => {
     try{
-        const animal = await Rescue.find()
+        const animals = await Rescue.find()
         res.render("index.ejs", {
-            animal,
+            animals,
             tabTitle: "Index"
         })
-        console.log(animal)
+        console.log(animals)
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const show = async(req,res) => {
+    try{
+        console.log(req.params.id)
+        const index = req.params.id
+        const animal = await Rescue.findById(index)
+        res.render("show.ejs", {
+            animal,
+            tabTitle: animal.name,
+        })
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const editForm = async(req,res) => {
+    try{
+        const animal = await Rescue.findById(req.params.animalId)
+        res.render("edit.ejs", {
+            animal,
+            tabTitle: "Edit Animal"
+        })
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const update = async(req,res) => {
+    try{
+        await Rescue.findByIdAndUpdate(req.params.animalId, req.body, {new: true})
+        res.redirect("/rescue")
     }catch(err){
         console.log(err)
     }
@@ -37,5 +72,8 @@ const index = async(req, res) => {
 module.exports = {
     create,
     new: newForm,
-    index
+    index,
+    show,
+    edit: editForm,
+    update
 }

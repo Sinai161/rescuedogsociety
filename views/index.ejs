@@ -8,12 +8,13 @@
 <body> 
 <ul>
     <h1>Rescue Dog Society</h1>
-    <% for(let i = 0; i < animal.length; i++) { %>
+    <% for(let i = 0; i < animals.length; i++) { %>
     <li>
-        <a href="/rescue/<%=animal[i].id%>">
-            <%= animal[i].name %>
-            <%= animal[i].img %>
+        <a href="/rescue/<%=animals[i].id%>">
+            <img src="<%= animals[i].img%>" >
+            <%= animals[i].name %>
         </a> 
+        <a href="/rescue/<%= animals[i].id %>/edit" type="button">Edit</a>
     </li>
     <% } %> 
 </ul>
