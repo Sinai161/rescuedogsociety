@@ -21,8 +21,8 @@ app.get("/", (req,res) => {
 })
 
 
-port = 3000
 
-app.listen(port,() => {
+
+app.listen(process.env.PORT,() => {
     console.log("Server is on 3000 ")
 })
