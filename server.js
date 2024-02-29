@@ -1,10 +1,11 @@
-require("dotenv").config()
 const express = require("express")
 const app = express()
-const methodOverride = require("method-override")
+require("dotenv").config()
 require("./config/database")
 
+const methodOverride = require("method-override")
 const rescueRoutes = require("./routes/rescue")
+
 
 
 

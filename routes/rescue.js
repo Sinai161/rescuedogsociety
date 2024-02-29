@@ -7,5 +7,6 @@ router.post("/", rescueCtrl.create)
 router.get("/:id", rescueCtrl.show)
 router.get("/:animalId/edit", rescueCtrl.edit)
 router.put("/:animalId", rescueCtrl.update)
+router.delete("/", rescueCtrl.destroy)
 
 module.exports = router

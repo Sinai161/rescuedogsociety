@@ -68,6 +68,15 @@ const update = async(req,res) => {
     }
 }
 
+const destroy = async(req,res) => {
+    try{
+        await Rescue.findByIdAndDelete(req.params.animalId)
+        res.redirect("/rescue")
+    }catch(err){
+        console.log(err)
+    }
+}
+
 
 module.exports = {
     create,
@@ -75,5 +84,6 @@ module.exports = {
     index,
     show,
     edit: editForm,
-    update
+    update,
+    destroy
 }

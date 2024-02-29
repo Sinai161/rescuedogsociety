@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index Rescue Page</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/app.css">    
+
+        <title>Index Rescue Page</title>
+    </head>
 <body> 
+    <%- include ("./partials/header.ejs") %>
 <ul>
-    <h1>Rescue Dog Society</h1>
     <% for(let i = 0; i < animals.length; i++) { %>
     <li>
-        <a href="/rescue/<%=animals[i].id%>">
+        <a href="/rescue/<%=animals[i].id%>" >
             <img src="<%= animals[i].img%>" >
-            <%= animals[i].name %>
         </a> 
-        <a href="/rescue/<%= animals[i].id %>/edit" type="button">Edit</a>
+        <a href="/rescue/<%= animals[i].id %>/edit" type="button" class="edit">Edit</a>
+        <form method="POST" action="/rescue/<%= animals[i].id%>?_method=DELETE">
+            <input class="delete-button" type="submit" value="DELETE">
+        </form>
     </li>
     <% } %> 
 </ul>
+<%- include ("./partials/footer.ejs") %>
 </body>
 </html>
