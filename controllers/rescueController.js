@@ -3,7 +3,8 @@ const Rescue = require("../models/Rescue")
 const newForm = (req,res) => {
     try{
         res.render("new.ejs",{
-            tabTitle: "New Animal"
+            tabTitle: "New Animal",
+            currentUser: req.session.currentUser
         })
     }catch(err){
         console.log(err)
@@ -25,7 +26,8 @@ const index = async(req, res) => {
         const animals = await Rescue.find()
         res.render("index.ejs", {
             animals,
-            tabTitle: "Index"
+            tabTitle: "Index",
+            currentUser: req.session.currentUser
         })
         console.log(animals)
     }catch(err){
@@ -41,6 +43,7 @@ const show = async(req,res) => {
         res.render("show.ejs", {
             animal,
             tabTitle: animal.name,
+            currentUser: req.session.currentUser
         })
     }catch(err){
         console.log(err)
@@ -52,7 +55,8 @@ const editForm = async(req,res) => {
         const animal = await Rescue.findById(req.params.animalId)
         res.render("edit.ejs", {
             animal,
-            tabTitle: "Edit Animal"
+            tabTitle: "Edit Animal",
+            currentUser: req.session.currentUser
         })
     }catch(err){
         console.log(err)
@@ -83,7 +87,7 @@ module.exports = {
     new: newForm,
     index,
     show,
+    destroy,
     edit: editForm,
     update,
-    destroy
 }

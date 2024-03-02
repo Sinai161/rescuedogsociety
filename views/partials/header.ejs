@@ -1,5 +1,16 @@
 <header class="nav-bar">
     <h1>Rescue Dog Society</h1>
     <a href="/rescue" class="nav-link">All Dogs</a>
+  <% if (currentUser) { %>
     <a href="/rescue/new" class="nav-link">Add Dog</a>
+    <li>Welcome <%= currentUser.username %></li>
+    <li>
+    <form action="/sessions?_method=DELETE" method="POST">
+        <input type="submit" value="Log Out" />
+    </form>
+    </li>
+    <% } else { %>
+    <li><a href="/users/new">Sign Up</a></li>
+    <li><a href="/sessions/new"></a>Log In</li>
+    <% } %>
 </header>
