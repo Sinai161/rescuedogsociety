@@ -1,16 +1,18 @@
-<header class="nav-bar">
-    <h1>Rescue Dog Society</h1>
-    <a href="/rescue" class="nav-link">All Dogs</a>
-  <% if (currentUser) { %>
-    <a href="/rescue/new" class="nav-link">Add Dog</a>
-    <li>Welcome <%= currentUser.username %></li>
-    <li>
-    <form action="/sessions?_method=DELETE" method="POST">
-        <input type="submit" value="Log Out" />
-    </form>
-    </li>
-    <% } else { %>
-    <li><a href="/users/new">Sign Up</a></li>
-    <li><a href="/sessions/new"></a>Log In</li>
-    <% } %>
+<header class="navbar is-black">
+  <div class="navbar-start">
+    <h1 class="title">Rescue Dog Society</h1>
+       <% if (currentUser) { %>
+      <a class="navbar-item" href="/rescue">All Dogs</a>
+      <a class="navbar-item" href="/rescue/new">Add Dog</a>
+      <li class="navbar-item">Welcome <%= currentUser.username %></li>
+      <li class="nav-link">
+        <form action="/sessions?_method=DELETE" method="POST">
+          <input type="submit" value="Log Out" />
+        </form>
+      </li>
+      <% } else { %>
+      <li><a class="nav-link" href="/users/new">Sign Up</a></li>
+      <li><a class="nav-link" href="/sessions/new">Log In</a></li>
+      <% } %>
+  </div>
 </header>

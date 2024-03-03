@@ -1,31 +1,26 @@
-body {
-    background: #DDDBFF;
-    background-size: cover;
-
-}
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 h1 {
     color: #A2D5E1;
 }
-.nav-bar {
-    width: 100%;
-    padding: 16px 20px 30px 20px;
-    display: flex;
-    align-items: center;
-}
+
+
 ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
     list-style: none;
 }
 
+
 img {
-    max-width: 25%;
-    clip-path: circle(40%);
+    /* max-width: 55%; */
+    clip-path: circle(45%);
     display: flex;
-
-}
-
-.nav-link {
-    float: right;
-    padding: 20px;
-    text-decoration: none;
-    
+    float: left;
+    width:  300px;
+    height: 300px;
+    object-fit: cover;
 }

@@ -4,7 +4,7 @@ const newForm = (req,res) => {
     try{
         res.render("new.ejs",{
             tabTitle: "New Animal",
-            currentUser: req.session.currentUser
+            // currentUser: req.session.currentUser
         })
     }catch(err){
         console.log(err)

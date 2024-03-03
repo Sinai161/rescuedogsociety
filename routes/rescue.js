@@ -2,7 +2,7 @@ const router = require("express").Router()
 const rescueCtrl = require("../controllers/rescueController")
 const isAuthenticated = require("../controllers/isAuthenticated")
 
-router.use(isAuthenticated)
+// router.use(isAuthenticated)
 router.get("/", rescueCtrl.index)
 router.get("/new", rescueCtrl.new)
 router.post("/", rescueCtrl.create)
