@@ -3,18 +3,29 @@
     <%- include ("./partials/head.ejs") %>
 <body>
     <%- include ("./partials/header.ejs") %>
-    <h1 class="title">
+    <h1 class="dog-name">
      <%= animal.name %>
     </h1>
-    <img src="<%= animal.img%>">
-    <pre>
-        Sex: <%= animal.sex %>
-        Size:<%= animal.size %>
-        Color: <%= animal.color %>
-        Breed: <%= animal.breed %>
-        Life Stage: <%= animal.lifeStage %>
-    </pre>
+    <div class="box">
+    <img class="dog-pic " src="<%= animal.img%>">
+        <h1 class="info"><%=animal.name%></h1>
+       <h1 class="info"> Sex: <%= animal.sex %> </h1>
+        <h1 class="info">Size:<%= animal.size %> </h1>
+        <h1 class="info">Color: <%= animal.color %></h1>
+        <h1 class="info">Breed: <%= animal.breed %></h1>
+       <h1 class="info"> Life Stage: <%= animal.lifeStage %></h1>
+       <!-- <h1 class="button" id="adopt-button">Adopt me</h1> -->
+       <div class="popup" onclick="myFunction()" id="adopt-button">Adopt Me !
+        <span class="popuptext" id="myPopup">Congratulations you adopted a furry friend!</span>
       </div>
+    </div>
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+        }
+        </script>
     <%- include ("./partials/footer.ejs") %>
 </body>
 </html>

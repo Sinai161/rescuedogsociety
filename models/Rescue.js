@@ -8,10 +8,10 @@ const rescueSchema = new mongoose.Schema({
     breed: String,
     lifeStage: String, 
     img: String,
+    userId: String
 })
 
 const Rescue = mongoose.model("Rescue", rescueSchema)
 
 
 module.exports =Rescue
-

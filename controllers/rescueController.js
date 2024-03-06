@@ -13,8 +13,7 @@ const newForm = (req,res) => {
 
 const create = async (req,res) => {
     try{
-        const newAnimal = await Rescue.create(req.body)
-        console.log(newAnimal)
+        const newAnimal = await Rescue.create({...req.body, userId: req.session.currentUser._id})
         res.redirect("/rescue")
     }catch(err){
         console.log(err)
@@ -23,17 +22,31 @@ const create = async (req,res) => {
 
 const index = async(req, res) => {
     try{
+        // await Rescue.find({userId: req.session.currentUser._id})
         const animals = await Rescue.find()
         res.render("index.ejs", {
             animals,
             tabTitle: "Index",
             currentUser: req.session.currentUser
         })
-        console.log(animals)
     }catch(err){
         console.log(err)
     }
 }
+
+const myRescue = async(req,res) => {
+    try{
+        const animals = await Rescue.find({userId: req.session.currentUser._id})
+        res.render("myrescue.ejs", {
+            animals,
+            tabTitle: "My Rescue",
+            currentUser: req.session.currentUser
+        })
+    }catch(err){
+        console.log(err)
+    }
+}
+
 
 const show = async(req,res) => {
     try{
@@ -53,6 +66,7 @@ const show = async(req,res) => {
 const destroy = async(req,res) => {
     try{
         await Rescue.findByIdAndDelete(req.params.animalId)
+        console.log(req.params.animalId)
         res.redirect("/rescue")
     }catch(err){
         console.log(err)
@@ -74,13 +88,12 @@ const editForm = async(req,res) => {
 
 const update = async(req,res) => {
     try{
-        await Rescue.findByIdAndUpdate(req.params.animalId, req.body, {new: true})
+        await Rescue.updateOne(req.params.animalId, req.body, {new: true})
         res.redirect("/rescue")
     }catch(err){
         console.log(err)
     }
 }
-
 
 
 module.exports = {
@@ -91,4 +104,5 @@ module.exports = {
     destroy,
     edit: editForm,
     update,
+    myRescue,
 }

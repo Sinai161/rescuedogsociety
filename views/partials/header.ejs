@@ -4,6 +4,7 @@
        <% if (currentUser) { %>
       <a  href="/rescue">All Dogs</a>
       <a href="/rescue/new">Add Dog</a>
+      <a href="/rescue/myrescue">My Rescue's</a>
       <div>
         <div class="username" >Welcome <%= currentUser.username %></div>
         <form action="/sessions?_method=DELETE" method="POST">

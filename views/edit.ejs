@@ -4,7 +4,7 @@
 <body>
     <%- include ("./partials/header.ejs") %>
     <h1>Edit Your Furry Friend Here</h1>
-    <form action="/rescue/<%= animal.id%>?_method=PUT" method="POST" class="form-control">
+    <form action="/myrescue/<%= animal.id%>?_method=PUT" method="POST" class="form-control">
         <label class="label is-medium" for="name">name</label>
         <input class="input is-rounded" value="<%= animal.name %>" name="name" type="text">
         <label class="label is-medium" for="sex">sex</label>
