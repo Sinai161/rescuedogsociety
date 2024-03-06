@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rescue Show Page</title>
-</head>
+    <%- include ("./partials/head.ejs") %>
 <body>
-    <h1>
+    <%- include ("./partials/header.ejs") %>
+    <h1 class="title">
      <%= animal.name %>
     </h1>
-    <img src="<%= animal.img%>" >
-    <p>
-       <%= animal.sex %> 
-       <%= animal.size %>
-       <%= animal.color %>
-       <%= animal.breed %>
-       <%= animal.lifeStage %>
-    </p>
+    <img src="<%= animal.img%>">
+    <pre>
+        Sex: <%= animal.sex %>
+        Size:<%= animal.size %>
+        Color: <%= animal.color %>
+        Breed: <%= animal.breed %>
+        Life Stage: <%= animal.lifeStage %>
+    </pre>
+      </div>
     <%- include ("./partials/footer.ejs") %>
 </body>
 </html>

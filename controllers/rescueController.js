@@ -4,7 +4,7 @@ const newForm = (req,res) => {
     try{
         res.render("new.ejs",{
             tabTitle: "New Animal",
-            // currentUser: req.session.currentUser
+            currentUser: req.session.currentUser
         })
     }catch(err){
         console.log(err)
@@ -50,6 +50,15 @@ const show = async(req,res) => {
     }
 }
 
+const destroy = async(req,res) => {
+    try{
+        await Rescue.findByIdAndDelete(req.params.animalId)
+        res.redirect("/rescue")
+    }catch(err){
+        console.log(err)
+    }
+}
+
 const editForm = async(req,res) => {
     try{
         const animal = await Rescue.findById(req.params.animalId)
@@ -72,14 +81,6 @@ const update = async(req,res) => {
     }
 }
 
-const destroy = async(req,res) => {
-    try{
-        await Rescue.findByIdAndDelete(req.params.animalId)
-        res.redirect("/rescue")
-    }catch(err){
-        console.log(err)
-    }
-}
 
 
 module.exports = {

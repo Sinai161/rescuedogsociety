@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Rescue Page</title>
-</head>
+    <%- include ("./partials/head.ejs") %>
 <body>
-    <form action="/rescue" method="POST">
-        <label for="name">name</label>
-        <input name="name" type="text" id="name">
-        <label for="sex">sex</label>
-        <input name="sex" type="text" id="sex">
-        <label for="size">size</label>
-        <input name="size" type="text" id="size">
-        <label for="color">color</label>
-        <input name="color" type="text" id="color">
-        <label for="breed">breed</label>
-        <input name="breed" type="text" id="breed">
-        <label for="lifeStage">life stage</label>
-        <input name="lifeStage" type="text" id="lifeStage">
-        <label for="img">img</label>
-        <input name="img" id="img">
-        <input type="submit">
+    <%- include ("./partials/header.ejs") %>
+    <form action="/rescue" method="POST" class="form">
+        <label class="label is-medium" for="name">name</label>
+        <input class="input" name="name" type="text" id="name">
+        <label class="label is-medium" for="sex">sex</label>
+        <input class="input" name="sex" type="text" id="sex">
+        <label class="label is-medium" for="size">size</label>
+        <input class="input" name="size" type="text" id="size">
+        <label class="label is-medium" for="color">color</label>
+        <input class="input" name="color" type="text" id="color">
+        <label class="label is-medium" for="breed">breed</label>
+        <input class="input" name="breed" type="text" id="breed">
+        <label class="label is-medium" for="lifeStage">life stage</label>
+        <input class="input" name="lifeStage" type="text" id="lifeStage">
+        <label class="label is-medium" for="img">img</label>
+        <input class="input" name="img" id="img">
+        <input class="button is-black" type="submit" id="button">
     </form>
     <%- include ("./partials/footer.ejs") %>
 </body>

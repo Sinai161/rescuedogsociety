@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="app.css">
-    <title>Rescue Edit Page</title>
-</head>
+    <%- include ("./partials/head.ejs") %>
 <body>
-    <form action="/rescue/<%= animal.id%>?_method=PUT" method="POST">
-        <label for="name">name</label>
-        <input value="<%= animal.name %>" name="name" type="text">
-        <label for="sex">sex</label>
-        <input value="<%= animal.sex %>" name="sex" type="text">
-        <label for="size">size</label>
-        <input value="<%= animal.size %>" name="size" type="text">
-        <label for="color">color</label>
-        <input value="<%= animal.color %>" name="color" type="text">
-        <label for="breed">breed</label>
-        <input value="<%= animal.breed %>" name="breed" type="text">
-        <label for="lifeStage">life stage</label>
-        <input value="<%= animal.lifeStage %>" name="lifeStage" type="text">
-        <label for="img">img</label>
-        <input value="<%= animal.img %>" name="img">
-        <input type="submit" value="Edit">
+    <%- include ("./partials/header.ejs") %>
+    <h1>Edit Your Furry Friend Here</h1>
+    <form action="/rescue/<%= animal.id%>?_method=PUT" method="POST" class="form-control">
+        <label class="label is-medium" for="name">name</label>
+        <input class="input is-rounded" value="<%= animal.name %>" name="name" type="text">
+        <label class="label is-medium" for="sex">sex</label>
+        <input class="input is-rounded" value="<%= animal.sex %>" name="sex" type="text">
+        <label class="label is-medium" for="size">size</label>
+        <input class="input is-rounded" value="<%= animal.size %>" name="size" type="text">
+        <label class="label is-medium" for="color">color</label>
+        <input class="input is-rounded" value="<%= animal.color %>" name="color" type="text">
+        <label class="label is-medium" for="breed">breed</label>
+        <input class="input is-rounded" value="<%= animal.breed %>" name="breed" type="text">
+        <label class="label is-medium" for="lifeStage">life stage</label>
+        <input class="input is-rounded" value="<%= animal.lifeStage %>" name="lifeStage" type="text">
+        <label class="label is-medium" for="img">img</label>
+        <input class="input is-rounded" value="<%= animal.img %>" name="img">
+        <input class="button is-black is-normal" type="submit" value="Edit" id="button">
     </form>
     <%- include ("./partials/footer.ejs") %>
 </body>
