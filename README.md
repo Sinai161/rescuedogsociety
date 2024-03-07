@@ -1,8 +1,9 @@
 # Rescuedogsociety
 An animal adoption website that allows users to help look for the right companion. You can add, edit, and delete the rescues that only you have made as a user.
 
-![alt text](<Screenshot 2024-03-06 at 4.35.38 PM-1.png>)
-![alt text](<Screenshot 2024-03-06 at 4.35.49 PM.png>)
+![](<Screenshot 2024-03-06 at 4.35.38 PM-1.png>)
+![](<Screenshot 2024-03-06 at 4.35.49 PM.png>)
+
 # Technologies Used
 
 - Express.js
