@@ -22,7 +22,6 @@ const create = async (req,res) => {
 
 const index = async(req, res) => {
     try{
-        // await Rescue.find({userId: req.session.currentUser._id})
         const animals = await Rescue.find()
         res.render("index.ejs", {
             animals,

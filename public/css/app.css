@@ -149,6 +149,11 @@ footer {
     margin-left: 50px;
 }
 
+#edit {
+    font-size: 30px;
+    text-align: center;
+}
+
 #adopt-button{
     top: -200px;
     margin-left: 140px;
