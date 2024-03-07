@@ -1,21 +1,33 @@
 # Rescuedogsociety
-An animal adoption app where you can find rescues to adopt and add your own.
-file:///Users/ashleygalvan/Desktop/Screenshot%202024-03-06%20at%204.35.38%E2%80%AFPM.png
-file:///Users/ashleygalvan/Desktop/Screenshot%202024-03-06%20at%204.35.49%E2%80%AFPM.png
+An animal adoption website that allows users to help look for the right companion. You can add, edit, and delete the rescues that only you have made as a user.
 
+![alt text](<Screenshot 2024-03-06 at 4.35.38 PM-1.png>)
+![alt text](<Screenshot 2024-03-06 at 4.35.49 PM.png>)
 # Technologies Used
 
-Express.js
+- Express.js
 
-Node.js
+- Node.js
 
-Mongoose
+- Mongoose
 
-Bulma
+- Bulma
 
 # Getting Started
 Welcome to Rescue Dog Society !
 Sign Up and Log In to start adding your own rescues.
+
+Trello :
+https://trello.com/b/z8AGhnxW/project-2
+
+Deployment:
+https://rescuedogsociety-d470b68b34a9.herokuapp.com/sessions/new
+
+# Next Steps
+- Add user image and email to My rescue's page.
+- When a dog is adopted redirect them to another page where they fill out another form. 
+- When an animal is adopted they get deleted from the index page.
+- Allow users to comment on animals.
 
 # Rescources
 https://www.w3schools.com/howto/howto_js_popup.asp
