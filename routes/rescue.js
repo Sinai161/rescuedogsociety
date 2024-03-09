@@ -11,5 +11,5 @@ router.get("/:id", rescueCtrl.show)
 router.delete("/:animalId", rescueCtrl.destroy)
 router.get("/:animalId/edit", rescueCtrl.edit)
 router.put("/:animalId", rescueCtrl.update)
-
+router.post("/myrescue/:id", rescueCtrl.adopted)
 module.exports = router

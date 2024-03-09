@@ -14,16 +14,14 @@
         <h1 class="info">Color: <%= animal.color %></h1>
         <h1 class="info">Breed: <%= animal.breed %></h1>
        <h1 class="info"> Life Stage: <%= animal.lifeStage %></h1>
-       <div class="popup" onclick="myFunction()" id="adopt-button">Adopt Me !
-        <span class="popuptext" id="myPopup">Congratulations you adopted a furry friend!</span>
-      </div>
+       <% if (animal.isAdopted === false) { %>
+        <form action="/rescue/myrescue/<%= animal.id%>" method="post">
+          <input class="button is-black is-normal" type="submit" value="Adopt me" id="adopt-button">
+        </form>
+       <% }else{ %>
+        <h1 class="info" id="adopt-button">is adopted</h1>
+       <%} %>
     </div>
-    <script>
-        function myFunction() {
-          var popup = document.getElementById("myPopup");
-          popup.classList.toggle("show");
-        }
-        </script>
     <%- include ("./partials/footer.ejs") %>
 </body>
 </html>

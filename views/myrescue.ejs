@@ -3,6 +3,7 @@
     <%- include ("./partials/head.ejs") %>
 <body> 
     <%- include ("./partials/header.ejs") %>
+<h1 class="title">Rescues</h1>
 <ul>
     <% for(let i = 0; i < animals.length; i++) { %>
     <li>
@@ -15,6 +16,22 @@
         </form>
     </li>
     <% } %> 
+</ul>
+<h1 class="title">Adopted</h1>
+<%  if(adopted.length > 0){ %>
+<ul>
+    <% for(let i = 0; i < adopted.length; i++) { %>
+    <li>
+        <a href="<%=adopted[i].id%>" >
+            <img src="<%= adopted[i].img%>" >
+        </a>
+        <a href="<%= adopted[i].id %>/edit" type="button" class="button is-dark button is-small button is-rounded">Edit</a>
+        <form method="POST" action="<%= adopted[i].id%>?_method=DELETE">
+            <input type="submit" value="DELETE" class="button is-danger button is-small button is-rounded">
+        </form>
+    </li>
+    <% } %> 
+<% } %>
 </ul>
 <%- include ("./partials/footer.ejs") %>
 </body>

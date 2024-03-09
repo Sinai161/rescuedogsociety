@@ -4,7 +4,7 @@ const newForm = (req,res) => {
     try{
         res.render("new.ejs",{
             tabTitle: "New Animal",
-            currentUser: req.session.currentUser
+            currentOwner: req.session.currentOwner
         })
     }catch(err){
         console.log(err)
@@ -13,8 +13,10 @@ const newForm = (req,res) => {
 
 const create = async (req,res) => {
     try{
-        const newAnimal = await Rescue.create({...req.body, userId: req.session.currentUser._id})
+        req.body.isAdopted = req.body.isAdopted == "on" ? true : false
+        const newAnimal = await Rescue.create({...req.body, owner: req.session.currentOwner._id})
         res.redirect("/rescue")
+        console.log(newAnimal)
     }catch(err){
         console.log(err)
     }
@@ -22,11 +24,12 @@ const create = async (req,res) => {
 
 const index = async(req, res) => {
     try{
-        const animals = await Rescue.find()
+        const animals = await Rescue.find({isAdopted: false})
+        console.log(animals)
         res.render("index.ejs", {
             animals,
             tabTitle: "Index",
-            currentUser: req.session.currentUser
+            currentOwner: req.session.currentOwner
         })
     }catch(err){
         console.log(err)
@@ -35,11 +38,35 @@ const index = async(req, res) => {
 
 const myRescue = async(req,res) => {
     try{
-        const animals = await Rescue.find({userId: req.session.currentUser._id})
-        res.render("myrescue.ejs", {
+        const allAnimals = await Rescue.find({owner: req.session.currentOwner._id})
+
+        const adopted = []
+        const animals = []
+        const temp = allAnimals.map((animal) => animal.isAdopted === true ? adopted.push(animal) : animals.push(animal))
+
+        return res.render("myrescue.ejs", {
             animals,
+            adopted,
             tabTitle: "My Rescue",
-            currentUser: req.session.currentUser
+            currentOwner: req.session.currentOwner
+        })
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const adopted = async(req,res) => {
+    try{
+        const adopted = await Rescue.findOne({_id: req.params.id})
+        console.log(req.params.id)
+        if(adopted.isAdopted === true) {
+            return res.render("/error.ejs")
+        }
+        await Rescue.updateOne({id: req.params.id},{owner: req.session.currentOwner._id})
+        res.render("myrescue.ejs", {
+            adopted,
+            tabTitle: "Adopted",
+            currentOwner: req.session.currentOwner
         })
     }catch(err){
         console.log(err)
@@ -55,7 +82,7 @@ const show = async(req,res) => {
         res.render("show.ejs", {
             animal,
             tabTitle: animal.name,
-            currentUser: req.session.currentUser
+            currentOwner: req.session.currentOwner
         })
     }catch(err){
         console.log(err)
@@ -78,7 +105,7 @@ const editForm = async(req,res) => {
         res.render("edit.ejs", {
             animal,
             tabTitle: "Edit Animal",
-            currentUser: req.session.currentUser
+            currentOwner: req.session.currentOwner
         })
     }catch(err){
         console.log(err)
@@ -104,4 +131,5 @@ module.exports = {
     edit: editForm,
     update,
     myRescue,
+    adopted
 }

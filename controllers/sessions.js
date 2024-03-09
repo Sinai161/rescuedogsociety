@@ -1,22 +1,22 @@
 const bcrypt = require('bcrypt')
 const router = require('express').Router()
-const User = require('../models/User.js')
+const Owner = require('../models/Owner.js')
 
 router.get('/new', (req, res) => {
     res.render('sessions/new.ejs', { 
-        currentUser: req.session.currentUser 
+        currentOwner: req.session.currentOwner
     })
 })
 
 
 router.post('/', async (req, res) => {
   try {
-    const foundUser = await User.findOne({ username: req.body.username })
-    if (!foundUser) {
+    const foundOwner = await Owner.findOne({ username: req.body.username })
+    if (!foundOwner) {
         res.send('<a  href="/">Sorry, no user found </a>')
     
-    } else if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-        req.session.currentUser = foundUser
+    } else if (bcrypt.compareSync(req.body.password, foundOwner.password)) {
+        req.session.currentOwner = foundOwner
         res.redirect('/')
     } else {
         res.send('<a href="/"> password does not match </a>')

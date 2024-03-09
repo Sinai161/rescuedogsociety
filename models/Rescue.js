@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const Owner = require("./Owner")
 
 const rescueSchema = new mongoose.Schema({
     name: String,
@@ -8,10 +9,12 @@ const rescueSchema = new mongoose.Schema({
     breed: String,
     lifeStage: String, 
     img: String,
-    userId: String
+    isAdopted: { type: Boolean, default: false},
+    owner: {type: mongoose.Types.ObjectId, ref: Owner}
 })
 
 const Rescue = mongoose.model("Rescue", rescueSchema)
 
 
-module.exports =Rescue
+module.exports = Rescue
+

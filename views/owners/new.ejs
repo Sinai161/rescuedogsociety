@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css">
     <title>Sign Up</title>
 </head>
 <body>
     <%- include('../partials/header') %>
-    <h1>Sign Up</h1>
-    <form action="/users" method="POST">
-        Username: <input required type="text" name="username"/><br>
-        Password: <input required type="text" name="password"><br>
+    <h1 class="title">Sign Up</h1>
+    <form action="/owners" method="POST" class="sessions">
+        Username: <input class="user" required type="text" name="username"/><br>
+        Password: <input class="user" required type="text" name="password"><br>
         <input type="submit" name="" value="Sign Up"/>
     </form>
 </body>

@@ -1,18 +1,18 @@
 <header >
   <nav class="navbar" >
     <h1 class="title" >Rescue Dog Society</h1>
-       <% if (currentUser) { %>
+       <% if (currentOwner) { %>
       <a  href="/rescue">All Dogs</a>
       <a href="/rescue/new">Add Dog</a>
       <a href="/rescue/myrescue">My Rescue's</a>
       <div>
-        <div class="username" >Welcome <%= currentUser.username %></div>
+        <div class="username" >Welcome <%= currentOwner.username %></div>
         <form action="/sessions?_method=DELETE" method="POST">
             <input class="button is-rounded is-small" id="log-out" type="submit" value="Log Out" />
         </form>
       </div>
       <% } else { %>
-      <li><a class="nav-link" href="/users/new">Sign Up</a></li>
+      <li><a class="nav-link" href="/owners/new">Sign Up</a></li>
       <li><a class="nav-link" href="/sessions/new">Log In</a></li>
       <% } %>
       </nav>

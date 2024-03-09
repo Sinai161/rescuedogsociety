@@ -37,3 +37,5 @@ https://www.laanimalservices.com/search/dogs?page=0
 
 https://www.w3schools.com/cssref/css3_pr_clip-path.php
 https://bulma.io/
+
+https://medium.com/@truong.minh.michael/when-to-use-embedded-vs-reference-schema-in-mongoose-and-when-to-use-single-reference-vs-reference-36b757acab7e
