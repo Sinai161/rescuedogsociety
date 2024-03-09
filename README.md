@@ -24,6 +24,9 @@ https://trello.com/b/z8AGhnxW/project-2
 Deployment:
 https://rescuedogsociety-d470b68b34a9.herokuapp.com/sessions/new
 
+ERD :
+https://lucid.app/lucidchart/d1068be4-8d15-4b4e-b669-ced765d64ca6/edit?page=0_0&invitationId=inv_172cfd95-59eb-4c0f-bdcd-dc5510dd0291#
+
 # Next Steps
 - Add user image and email to My rescue's page.
 - When a dog is adopted redirect them to another page where they fill out another form. 
@@ -39,3 +42,7 @@ https://www.w3schools.com/cssref/css3_pr_clip-path.php
 https://bulma.io/
 
 https://medium.com/@truong.minh.michael/when-to-use-embedded-vs-reference-schema-in-mongoose-and-when-to-use-single-reference-vs-reference-36b757acab7e
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+https://medium.com/@brandon.lau86/one-to-many-relationships-with-mongodb-and-mongoose-in-node-express-d5c9d23d93c2

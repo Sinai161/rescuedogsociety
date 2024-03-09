@@ -4,7 +4,7 @@
 <body>
     <%- include ("./partials/header.ejs") %>
     <h1 id="edit">Edit Your Furry Friend Here</h1>
-    <form action="/myrescue/<%= animal.id%>?_method=PUT" method="POST" class="form-control">
+    <form action="/rescue/<%= animal.id%>?_method=PUT" method="POST" class="form-control">
         <label class="label is-medium" for="name">name</label>
         <input class="input is-rounded" value="<%= animal.name %>" name="name" type="text">
         <label class="label is-medium" for="sex">sex</label>
@@ -19,6 +19,8 @@
         <input class="input is-rounded" value="<%= animal.lifeStage %>" name="lifeStage" type="text">
         <label class="label is-medium" for="img">img</label>
         <input class="input is-rounded" value="<%= animal.img %>" name="img">
+        <input type="checkbox" name="isAdopted">
+        <label class="label is-medium" for="isAdopted">Is adopted</label>
         <input class="button is-black is-normal" type="submit" value="Edit" id="button">
     </form>
     <%- include ("./partials/footer.ejs") %>

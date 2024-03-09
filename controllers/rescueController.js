@@ -16,7 +16,6 @@ const create = async (req,res) => {
         req.body.isAdopted = req.body.isAdopted == "on" ? true : false
         const newAnimal = await Rescue.create({...req.body, owner: req.session.currentOwner._id})
         res.redirect("/rescue")
-        console.log(newAnimal)
     }catch(err){
         console.log(err)
     }
@@ -42,7 +41,7 @@ const myRescue = async(req,res) => {
 
         const adopted = []
         const animals = []
-        const temp = allAnimals.map((animal) => animal.isAdopted === true ? adopted.push(animal) : animals.push(animal))
+        allAnimals.map((animal) => animal.isAdopted === true ? adopted.push(animal) : animals.push(animal))
 
         return res.render("myrescue.ejs", {
             animals,
@@ -57,14 +56,23 @@ const myRescue = async(req,res) => {
 
 const adopted = async(req,res) => {
     try{
-        const adopted = await Rescue.findOne({_id: req.params.id})
-        console.log(req.params.id)
-        if(adopted.isAdopted === true) {
+        const adopt = await Rescue.findOne({_id: req.params.id})
+        if(adopt.isAdopted === true) {
             return res.render("/error.ejs")
         }
-        await Rescue.updateOne({id: req.params.id},{owner: req.session.currentOwner._id})
+        await Rescue.findOneAndUpdate
+        ({_id: req.params.id},
+        {owner: req.session.currentOwner._id},
+        {upsert: true, new:true})
+        const allAnimals = await Rescue.find({owner: req.session.currentOwner._id})
+        const adopted = []
+        const animals = []
+        allAnimals.map((animal) => animal.isAdopted === true ? adopted.push(animal) : animals.push(animal))
+
+        console.log(req.session.currentOwner._id)
         res.render("myrescue.ejs", {
-            adopted,
+            animals:[],
+            adopted:[adopted],
             tabTitle: "Adopted",
             currentOwner: req.session.currentOwner
         })
@@ -72,7 +80,6 @@ const adopted = async(req,res) => {
         console.log(err)
     }
 }
-
 
 const show = async(req,res) => {
     try{
@@ -92,7 +99,6 @@ const show = async(req,res) => {
 const destroy = async(req,res) => {
     try{
         await Rescue.findByIdAndDelete(req.params.animalId)
-        console.log(req.params.animalId)
         res.redirect("/rescue")
     }catch(err){
         console.log(err)
@@ -114,7 +120,8 @@ const editForm = async(req,res) => {
 
 const update = async(req,res) => {
     try{
-        await Rescue.updateOne(req.params.animalId, req.body, {new: true})
+        req.body.isAdopted = req.body.isAdopted == "on" ? true : false
+        await Rescue.findByIdAndUpdate(req.params.animalId, req.body, {new: true})
         res.redirect("/rescue")
     }catch(err){
         console.log(err)
