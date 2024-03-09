@@ -1,8 +1,9 @@
 # Rescuedogsociety
 An animal adoption website that allows users to help look for the right companion. You can add, edit, and delete the rescues that only you have made as a user.
 
-![](<Screenshot 2024-03-06 at 4.35.38 PM-1.png>)
-![](<Screenshot 2024-03-06 at 4.35.49 PM.png>)
+![alt text](<Screenshot 2024-03-09 at 9.51.05 AM.png>)
+(![alt text](<Screenshot 2024-03-09 at 9.51.13 AM.png>))
+
 
 # Technologies Used
 
@@ -46,3 +47,7 @@ https://medium.com/@truong.minh.michael/when-to-use-embedded-vs-reference-schema
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 https://medium.com/@brandon.lau86/one-to-many-relationships-with-mongodb-and-mongoose-in-node-express-d5c9d23d93c2
+
+https://mongoosejs.com/docs/tutorials/findoneandupdate.html
+
+https://stackoverflow.com/questions/67358555/nodejs-monogodb-findoneandupdate-not-saving-changes
